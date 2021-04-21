@@ -9,7 +9,7 @@ function Counter() {
   const incCount = () => countSet((oldCount) => oldCount + 1);
   const decCount = () => countSet((oldCount) => oldCount - 1);
   return (
-    <div className="m-1 p-2 shadow w-auto">
+    <div className="m-1 p-1 shadow flex justify-center items-center max-w-lg mx-auto">
       Count: {count}{" "}
       <span
         className="m-1 py-1 px-2 rounded-xl bg-indigo-100"

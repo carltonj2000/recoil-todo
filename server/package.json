@@ -4,9 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "esbuild index.js --bundle --platform=node --watch --outfile=./dist/server.js --external:express",
+    "watch": "nodemon ./dist/server.js --watch ./dist/",
+    "dev": "concurrently \"npm run build\" \"npm run watch\""
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.2",
+    "esbuild": "^0.11.12",
+    "nodemon": "^2.0.7"
+  }
 }
