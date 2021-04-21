@@ -1,11 +1,8 @@
-let id = 0;
-const nextId = () => id++;
-
 const tableOfUsers = [
-  { userId: nextId(), name: "carlton" },
-  { userId: nextId(), name: "tina" },
-  { userId: nextId(), name: "cheryl" },
-  { userId: nextId(), name: "jeffrey" },
+  { userId: 0, name: "carlton", friends: [1, 2, 3] },
+  { userId: 1, name: "tina", friends: [0] },
+  { userId: 2, name: "cheryl", friends: [0, 3] },
+  { userId: 3, name: "jeffrey", friends: [0, 2] },
 ];
 
 export default tableOfUsers;

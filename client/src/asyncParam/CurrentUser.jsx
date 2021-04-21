@@ -1,14 +1,9 @@
 import React from "react";
-import { atom, selectorFamily, useRecoilValue } from "recoil";
-
-const currentUserIDState = atom({
-  key: "CurrentUserIDAsyncParam",
-  default: 1,
-});
+import { selectorFamily, useRecoilValue } from "recoil";
 
 const currentUserNameState = selectorFamily({
   key: "CurrentUserNameAsyncParam",
-  get: (userID) => async ({ get }) => {
+  get: (userID) => async () => {
     const resp = await fetch(`http://localhost:3456/user/${userID}`).then((r) =>
       r.json()
     );
@@ -21,7 +16,7 @@ const CurrentUserInfo = ({ userID }) => {
   const userName = useRecoilValue(currentUserNameState(userID));
   return (
     <div className="flex m-1 p-1 shadow justify-center mx-auto max-w-md">
-      {userName}
+      {userName} - async parameter based selector
     </div>
   );
 };

@@ -8,10 +8,10 @@ The directory name and description of the code follows.
 - sync
   - synchronous selector
 - async
-  - asynchronous selector with fetch
+  - asynchronous derived state selector with fetch
   - server has to be running for this example
 - asyncParam
-  - parametrized asynchronous selector with fetch
+  - parametrized asynchronous parameter selector with fetch
   - server has to be running for this example
 - list1
   - single atom with all the list items
