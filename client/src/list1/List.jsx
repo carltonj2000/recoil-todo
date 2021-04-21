@@ -11,9 +11,11 @@ function List() {
   return (
     <div className="max-w-xl mx-auto bg-gray-50 shadow-lg p-2 m-2">
       <h1 className="text-center">
-        <span className="text-xl font-semibold">List Items </span>( Total:{" "}
-        {listStats.total}, To Do: {listStats.todo}, Completed:{" "}
-        {listStats.completed} )
+        <div className="text-xl font-semibold">List Items </div>
+        <div>
+          Total: {listStats.total}, To Do: {listStats.todo}, Completed:{" "}
+          {listStats.completed}
+        </div>
       </h1>
       <ListItemAdd />
       {listItems.map((item, k) => (

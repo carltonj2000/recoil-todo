@@ -18,8 +18,9 @@ const currentUserNameState = selector({
 const CurrentUserInfo = () => {
   const userName = useRecoilValue(currentUserNameState);
   return (
-    <div className="flex m-1 p-1 shadow justify-center mx-auto max-w-md">
-      {userName} - sync derived state selector
+    <div className="flex flex-col m-1 p-1 shadow items-center mx-auto max-w-md">
+      <h1 className="font-semibold">sync derived state selector</h1>
+      <div>{userName}</div>
     </div>
   );
 };

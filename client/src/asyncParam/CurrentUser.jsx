@@ -1,6 +1,8 @@
 import React from "react";
 import { selectorFamily, useRecoilValue } from "recoil";
 
+import ErrorBoundary from "../ErrorBoundary";
+
 const currentUserNameState = selectorFamily({
   key: "CurrentUserNameAsyncParam",
   get: (userID) => async () => {
@@ -14,11 +16,19 @@ const currentUserNameState = selectorFamily({
 
 const CurrentUserInfo = ({ userID }) => {
   const userName = useRecoilValue(currentUserNameState(userID));
-  return (
-    <div className="flex m-1 p-1 shadow justify-center mx-auto max-w-md">
-      {userName} - async parameter based selector
-    </div>
-  );
+  return <div>{userName}</div>;
 };
 
-export default CurrentUserInfo;
+const SubApp = () => (
+  <ErrorBoundary>
+    <React.Suspense fallback={<div>Loading ...</div>}>
+      <div className="flex flex-col m-1 p-1 shadow items-center mx-auto max-w-md">
+        <h1 className="font-semibold">async parameter based selector</h1>
+        <CurrentUserInfo userID={2} />
+        <CurrentUserInfo userID={3} />
+      </div>
+    </React.Suspense>
+  </ErrorBoundary>
+);
+
+export default SubApp;

@@ -1,6 +1,8 @@
 import React from "react";
 import { atom, selector, useRecoilValue } from "recoil";
 
+import ErrorBoundary from "../ErrorBoundary";
+
 const currentUserIDState = atom({
   key: "CurrentUserIDAsync",
   default: 0,
@@ -19,11 +21,17 @@ const currentUserNameState = selector({
 
 const CurrentUserInfo = () => {
   const userName = useRecoilValue(currentUserNameState);
-  return (
-    <div className="flex m-1 p-1 shadow justify-center mx-auto max-w-md">
-      {userName} - async derived state selector
-    </div>
-  );
+  return <div>{userName}</div>;
 };
 
-export default CurrentUserInfo;
+const SubApp = () => (
+  <ErrorBoundary>
+    <React.Suspense fallback={<div>Loading ...</div>}>
+      <div className="flex flex-col m-1 p-1 shadow items-center mx-auto max-w-md">
+        <h1 className="font-semibold">async derived state selector</h1>
+        <CurrentUserInfo />
+      </div>
+    </React.Suspense>
+  </ErrorBoundary>
+);
+export default SubApp;
