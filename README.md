@@ -13,6 +13,9 @@ The directory name and description of the code follows.
 - asyncParam
   - parametrized asynchronous parameter selector with fetch
   - server has to be running for this example
+- friends
+  - asynchronous multiple derived state selector with fetch
+  - server has to be running for this example
 - list1
   - single atom with all the list items
 - list2

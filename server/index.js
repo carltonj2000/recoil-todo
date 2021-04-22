@@ -21,4 +21,12 @@ app.get("/user/:id", (req, res) => {
   res.send(user);
 });
 
+app.get("/friends/:id", (req, res) => {
+  const { id } = req.params;
+  if (!id) res.send({ error: "Need a user ID" });
+  const user = tableOfUsers.filter((u) => u.userId === parseInt(id))[0];
+  if (!user) res.send({ error: "No user for provided ID " + id });
+  res.send(user.friends);
+});
+
 app.listen(PORT, () => console.log("Listening on this port", PORT));
