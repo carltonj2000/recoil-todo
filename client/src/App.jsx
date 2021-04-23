@@ -6,6 +6,7 @@ import CurrentUser from "./sync/CurrentUser";
 import CurrentUserAsync from "./async/CurrentUser";
 import CurrentUserAsyncParam from "./asyncParam/CurrentUser";
 import Friends from "./friends/Friends";
+import List2 from "./list2/List";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <CurrentUserAsyncParam />
       <Friends />
       <List1 />
+      <List2 />
     </>
   );
 }

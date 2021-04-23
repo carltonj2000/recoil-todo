@@ -11,7 +11,7 @@ function List() {
   return (
     <div className="max-w-xl mx-auto bg-gray-50 shadow-lg p-2 m-2">
       <h1 className="text-center">
-        <div className="text-xl font-semibold">List Items </div>
+        <div className="text-xl font-semibold">List With An Atom For Items</div>
         <div>
           Total: {listStats.total}, To Do: {listStats.todo}, Completed:{" "}
           {listStats.completed}
